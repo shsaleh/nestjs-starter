@@ -24,6 +24,12 @@
 
 ## Description
 
+This is a NestJS starter with some pre-configurations and pre-made authentication, role-permission, notification, and other systems.
+
+Feel free to fork it. Enjoy!
+
+We welcome contributors.
+
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 ## Installation

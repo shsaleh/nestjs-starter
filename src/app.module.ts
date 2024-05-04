@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Inject, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DatabaseModule } from './db/db.module';
@@ -13,6 +13,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { RolesModule } from './roles/roles.module';
 import { PermissionsModule } from './permissions/permissions.module';
 import { PermissionsGuard } from './permissions/permission.guard';
+import { DataSource } from 'typeorm';
 
 @Module({
   imports: [
@@ -44,4 +45,10 @@ import { PermissionsGuard } from './permissions/permission.guard';
     },
   ],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(@Inject('DATA_SOURCE') private dataSource: DataSource) {}
+  async onModuleDestroy() {
+    console.log('destroying DB');
+    await this.dataSource.destroy();
+  }
+}

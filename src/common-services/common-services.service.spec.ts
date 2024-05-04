@@ -1,30 +1,17 @@
-import { Test, TestingModule } from '@nestjs/testing';
 import { CommonServices } from './common-services.service';
-import { DataSource } from 'typeorm';
-import { AppModule } from 'src/app.module';
 import { INestApplication } from '@nestjs/common';
+import { getTestModule } from 'test/testingModule';
 let app: INestApplication;
 
 describe('CommonServicesService', () => {
   let service: CommonServices;
-  let dataSource: DataSource;
 
   beforeAll(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      imports: [AppModule],
-    }).compile();
+    const test = await getTestModule();
 
-    service = module.get<CommonServices>(CommonServices);
-    dataSource = module.get<DataSource>('DATA_SOURCE');
-    app = module.createNestApplication();
+    service = test.module.get<CommonServices>(CommonServices);
+    app = test.app;
     await app.init();
-  });
-
-  afterAll(async () => {
-    if (dataSource.isInitialized) {
-      await dataSource.destroy();
-      await app.close();
-    }
   });
 
   it('should be defined', () => {

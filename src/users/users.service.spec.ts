@@ -1,14 +1,12 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import { TestingModule } from '@nestjs/testing';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
-import { DataSource } from 'typeorm';
-import { AppModule } from 'src/app.module';
 import { INestApplication } from '@nestjs/common';
+import { getTestModule } from 'test/testingModule';
 let app: INestApplication;
 
 describe('UsersService', () => {
   let service: UsersService;
-  let dataSource: DataSource;
   const testUser: CreateUserDto = {
     firstName: 'test user name',
     lastName: 'test user last name',
@@ -21,21 +19,12 @@ describe('UsersService', () => {
   let createdUser = null;
 
   beforeAll(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      imports: [AppModule],
-    }).compile();
+    const test = await getTestModule();
+    const module: TestingModule = test.module;
 
     service = module.get<UsersService>(UsersService);
-    dataSource = module.get<DataSource>('DATA_SOURCE');
-    app = module.createNestApplication();
+    app = test.app;
     await app.init();
-  });
-
-  afterAll(async () => {
-    if (dataSource.isInitialized) {
-      await dataSource.destroy();
-      await app.close();
-    }
   });
 
   it('should be defined', () => {

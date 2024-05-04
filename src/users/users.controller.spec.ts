@@ -1,16 +1,11 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { UsersController } from './users.controller';
-import { DataSource } from 'typeorm';
 import * as request from 'supertest';
 import { HttpStatus, INestApplication } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { AppModule } from 'src/app.module';
 import { Role } from 'src/roles/entities/role.entity';
+import { getTestModule } from 'test/testingModule';
 
 describe('UsersController', () => {
-  let controller: UsersController;
-  let dataSource: DataSource;
   let app: INestApplication;
   const testUser: CreateUserDto = {
     firstName: 'user controller test user name',
@@ -22,18 +17,11 @@ describe('UsersController', () => {
   let createdUser: UpdateUserDto;
   let requestIns;
   beforeAll(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      imports: [AppModule],
-    }).compile();
-
-    controller = module.get<UsersController>(UsersController);
-    dataSource = module.get<DataSource>('DATA_SOURCE');
-    app = module.createNestApplication();
-    await app.init();
+    const test = await getTestModule();
+    app = test.app;
     await request(app.getHttpServer())
       .post('/auth/sendotp')
       .send({ destination: process.env.admin_mobile, type: 'SMS' });
-
     const res = await request(app.getHttpServer()).get(
       `/auth/verfyOtp/${process.env.otp_test_code}/${process.env.admin_mobile}/sms`,
     );
@@ -43,17 +31,6 @@ describe('UsersController', () => {
         authorization: 'Bearer ' + res.body.access_token,
       });
     }
-  });
-
-  afterAll(async () => {
-    if (dataSource.isInitialized) {
-      await dataSource.destroy();
-      await app.close();
-    }
-  });
-
-  it('should be defined', () => {
-    expect(controller).toBeDefined();
   });
 
   it('should create a user /users (post)', () => {

@@ -1,33 +1,19 @@
 import { HttpStatus, INestApplication } from '@nestjs/common';
-import { Test, TestingModule } from '@nestjs/testing';
 import * as request from 'supertest';
-import { AppModule } from 'src/app.module';
-import { DataSource } from 'typeorm';
 import { AuthService } from './auth.service';
-import { DatabaseModule } from 'src/db/db.module';
 import { otpTypeEnum } from './enum/otpType.enum';
+import { getTestModule } from 'test/testingModule';
 let app: INestApplication;
 
 describe('AuthController', () => {
-  const user = { mobile: 6464, email: 'asd@adad.ad' };
-  let dataSource: DataSource;
+  const user = { mobile: process.env.admin_mobile, email: 'asd@adad.ad' };
   let authService: AuthService;
   beforeAll(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      imports: [AppModule, DatabaseModule],
-    }).compile();
+    const test = await getTestModule();
 
-    app = module.createNestApplication();
-    dataSource = app.get<DataSource>('DATA_SOURCE');
-    authService = module.get<AuthService>(AuthService);
+    app = test.app;
+    authService = test.module.get<AuthService>(AuthService);
     await app.init();
-  });
-
-  afterAll(async () => {
-    if (dataSource.isInitialized) {
-      await dataSource.destroy();
-      await app.close();
-    }
   });
 
   it('should save and send a otp code / type sms', async () => {

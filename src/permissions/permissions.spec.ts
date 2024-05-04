@@ -1,25 +1,20 @@
-import { Test, TestingModule } from '@nestjs/testing';
 import { HttpStatus, INestApplication } from '@nestjs/common';
-import { DataSource } from 'typeorm';
-import { AppModule } from 'src/app.module';
 import { Permission } from './entities/permission.entity';
 import * as request from 'supertest';
 import { Module } from './entities/module.entity';
+import { getTestModule } from 'test/testingModule';
 
 describe('PermissionsController', () => {
   let app: INestApplication;
-  let dataSource: DataSource;
   let permission: Permission;
   let permissionModule: Module;
   let requestIns;
 
   beforeAll(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      imports: [AppModule],
-    }).compile();
+    const test = await getTestModule();
 
-    app = module.createNestApplication();
-    dataSource = app.get<DataSource>('DATA_SOURCE');
+    app = test.app;
+
     await app.init();
     await request(app.getHttpServer())
       .post('/auth/sendotp')
@@ -33,13 +28,6 @@ describe('PermissionsController', () => {
       requestIns = request.agent(app.getHttpServer()).set({
         authorization: 'Bearer ' + res.body.access_token,
       });
-    }
-  });
-
-  afterAll(async () => {
-    if (dataSource.isInitialized) {
-      await dataSource.destroy();
-      await app.close();
     }
   });
 

@@ -63,7 +63,11 @@ export class AuthService {
   async verfyOtp({ destination, code, type }: verfyOtpDto) {
     const findBy =
       type.toLocaleUpperCase() == otpTypeEnum.SMS ? 'mobile' : 'email';
-    const otp = await this.otpRepository.findOneBy({ destination, code });
+    const otp = await this.otpRepository.findOneBy({
+      destination,
+      code,
+      isValid: true,
+    });
     let user: User;
 
     if (!process.env.otp_expiration_time) {

@@ -1,10 +1,10 @@
 import { HttpStatus, INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import * as request from 'supertest';
-import { AppModule } from 'src/app.module';
+import { AppModule } from 'nest-starter/src/app.module';
 import { DataSource } from 'typeorm';
 import { AuthService } from './auth.service';
-import { DatabaseModule } from 'src/db/db.module';
+import { DatabaseModule } from 'nest-starter/src/db/db.module';
 import { otpTypeEnum } from './enum/otpType.enum';
 let app: INestApplication;
 

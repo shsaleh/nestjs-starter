@@ -1,4 +1,4 @@
-import { User } from 'src/users/entities/user.entity';
+import { User } from 'nest-starter/src/users/entities/user.entity';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { notification_type } from '../types';
 

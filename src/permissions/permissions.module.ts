@@ -5,7 +5,7 @@ import { ModulesService } from './module.service';
 import { ModulesController } from './modules.controller';
 import { PermissionProviders } from './entities/permission.providers';
 import { ModuleProviders } from './entities/module.providers';
-import { DatabaseModule } from 'src/db/db.module';
+import { DatabaseModule } from 'nest-starter/src/db/db.module';
 import { PermissionsImporterService } from './modulePermissionImporter.service';
 
 @Module({

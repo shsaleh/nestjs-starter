@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { AppModule } from 'src/app.module';
+import { AppModule } from 'nest-starter/src/app.module';
 import { DataSource } from 'typeorm';
 import { HttpStatus, INestApplication } from '@nestjs/common';
 import * as request from 'supertest';

@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { CommonServices } from './common-services.service';
 import { DataSource } from 'typeorm';
-import { AppModule } from 'src/app.module';
+import { AppModule } from 'nest-starter/src/app.module';
 import { INestApplication } from '@nestjs/common';
 let app: INestApplication;
 

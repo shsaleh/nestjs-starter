@@ -10,7 +10,7 @@ import {
 import { AuthService } from './auth.service';
 import { otpDto } from './dto/OTP.dto';
 import { verfyOtpDto } from './dto/verfyOtp.dto';
-import { Public } from 'src/decorators/public';
+import { Public } from 'nest-starter/src/decorators/public';
 import { ApiTags } from '@nestjs/swagger';
 
 // todo fix http responses

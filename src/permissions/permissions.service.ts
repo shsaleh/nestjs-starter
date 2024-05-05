@@ -4,7 +4,7 @@ import { UpdatePermissionDto } from './dto/update-permission.dto';
 import { Permission } from './entities/permission.entity';
 import { FindManyOptions, Repository } from 'typeorm';
 import { ModulesService } from './module.service';
-import { CommonServices } from 'src/common-services/common-services.service';
+import { CommonServices } from 'nest-starter/src/common-services/common-services.service';
 
 @Injectable()
 export class PermissionsService {

@@ -1,4 +1,4 @@
-import { ImodulePermissions } from 'src/permissions/interface/modulePermissions';
+import { ImodulePermissions } from 'nest-starter/src/permissions/interface/modulePermissions';
 
 export enum EnotificationPermissions {
   read = 'read',

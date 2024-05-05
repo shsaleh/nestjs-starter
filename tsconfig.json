@@ -10,6 +10,9 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
+    "paths": {
+      "nest-starter/src/*": ["./src/*"],
+    },
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": false,
@@ -17,6 +20,7 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
-    "allowJs": true
-  }
+    "allowJs": true,
+    "preserveSymlinks": true
+  },
 }

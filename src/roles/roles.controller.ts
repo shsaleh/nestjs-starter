@@ -12,7 +12,7 @@ import { CreateRoleDto } from './dto/create-role.dto';
 import { UpdateRoleDto } from './dto/update-role.dto';
 import { ApiTags } from '@nestjs/swagger';
 import { assignPermissionToRoleDto } from './dto/assignPermissionToRole';
-import { Permissions } from 'src/permissions/permission.decorator';
+import { Permissions } from 'nest-starter/src/permissions/permission.decorator';
 import { ErolePermissions } from './roles.modulePermissions';
 
 // todo fix http responses

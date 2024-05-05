@@ -17,7 +17,7 @@ import { PermissionsGuard } from './permissions/permission.guard';
 @Module({
   imports: [
     DatabaseModule,
-    ConfigModule.forRoot({ envFilePath: '.prod.env' }),
+    ConfigModule.forRoot({ envFilePath: '../.prod.env' }),
     PermissionsModule,
     RolesModule,
     UsersModule,

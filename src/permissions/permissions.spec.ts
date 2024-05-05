@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { HttpStatus, INestApplication } from '@nestjs/common';
 import { DataSource } from 'typeorm';
-import { AppModule } from 'src/app.module';
+import { AppModule } from 'nest-starter/src/app.module';
 import { Permission } from './entities/permission.entity';
 import * as request from 'supertest';
 import { Module } from './entities/module.entity';

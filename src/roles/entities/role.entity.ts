@@ -1,6 +1,6 @@
 import { IsNotEmpty } from 'class-validator';
-import { Permission } from 'src/permissions/entities/permission.entity';
-import { User } from 'src/users/entities/user.entity';
+import { Permission } from 'nest-starter/src/permissions/entities/permission.entity';
+import { User } from 'nest-starter/src/users/entities/user.entity';
 import {
   Column,
   Entity,

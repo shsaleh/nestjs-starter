@@ -8,7 +8,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Exclude } from 'class-transformer';
-import { Role } from 'src/roles/entities/role.entity';
+import { Role } from 'nest-starter/src/roles/entities/role.entity';
 import { IsEmail, IsMobilePhone } from 'class-validator';
 @Entity()
 export class User {

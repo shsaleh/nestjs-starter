@@ -3,7 +3,7 @@ import { Repository } from 'typeorm';
 import { Module } from './entities/module.entity';
 import { CreateModuleDto } from './dto/create-module.dto';
 import { UpdateModuleDto } from './dto/update-module.dto';
-import { CommonServices } from 'src/common-services/common-services.service';
+import { CommonServices } from 'nest-starter/src/common-services/common-services.service';
 
 @Injectable()
 export class ModulesService {

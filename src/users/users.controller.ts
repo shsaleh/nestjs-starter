@@ -17,9 +17,9 @@ import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { ApiBody, ApiQuery, ApiTags } from '@nestjs/swagger';
-import { CreateNotificationDto } from 'src/notification/dto/create-notification.dto';
+import { CreateNotificationDto } from 'nest-starter/src/notification/dto/create-notification.dto';
 import { assignRoleToUserDto } from './dto/assignRoleToUser.dto';
-import { Permissions } from 'src/permissions/permission.decorator';
+import { Permissions } from 'nest-starter/src/permissions/permission.decorator';
 import { EuserPermissions } from './user.modulePermissions';
 
 @ApiTags('users')

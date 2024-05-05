@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { NotificationService } from './notification.service';
 import { NotificationController } from './notification.controller';
 import { NotificationProviders } from './entities/notification.providers';
-import { DatabaseModule } from 'src/db/db.module';
+import { DatabaseModule } from 'nest-starter/src/db/db.module';
 
 @Module({
   imports: [DatabaseModule],

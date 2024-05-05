@@ -10,10 +10,10 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
 import { FindOneOptions, Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
-import { CommonServices } from 'src/common-services/common-services.service';
-import { CreateNotificationDto } from 'src/notification/dto/create-notification.dto';
-import { NotificationService } from 'src/notification/notification.service';
-import { RolesService } from 'src/roles/roles.service';
+import { CommonServices } from 'nest-starter/src/common-services/common-services.service';
+import { CreateNotificationDto } from 'nest-starter/src/notification/dto/create-notification.dto';
+import { NotificationService } from 'nest-starter/src/notification/notification.service';
+import { RolesService } from 'nest-starter/src/roles/roles.service';
 
 const admin = {
   email: 'admin@personalPlanner.com',

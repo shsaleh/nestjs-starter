@@ -13,7 +13,7 @@ import { NotificationService } from './notification.service';
 import { CreateNotificationDto } from './dto/create-notification.dto';
 import { UpdateNotificationDto } from './dto/update-notification.dto';
 import { ApiTags } from '@nestjs/swagger';
-import { Permissions } from 'src/permissions/permission.decorator';
+import { Permissions } from 'nest-starter/src/permissions/permission.decorator';
 import { EnotificationPermissions } from './notification.modulePermissions';
 // todo fix http responses
 @ApiTags('notification')

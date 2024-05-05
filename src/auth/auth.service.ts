@@ -4,17 +4,17 @@ import {
   Injectable,
   UnauthorizedException,
 } from '@nestjs/common';
-import { NotificationService } from 'src/notification/notification.service';
+import { NotificationService } from 'nest-starter/src/notification/notification.service';
 import { otpDto } from './dto/OTP.dto';
 import { verfyOtpDto } from './dto/verfyOtp.dto';
 import { Repository } from 'typeorm';
-import { getRandomInt } from 'src/helpers';
+import { getRandomInt } from 'nest-starter/src/helpers';
 import { Otp } from './entities/Otp.entity';
-import { UsersService } from 'src/users/users.service';
+import { UsersService } from 'nest-starter/src/users/users.service';
 import { JwtService } from '@nestjs/jwt';
 import { JwtBlackList } from './entities/jwtBlackList.entity';
 import { otpTypeEnum } from './enum/otpType.enum';
-import { User } from 'src/users/entities/user.entity';
+import { User } from 'nest-starter/src/users/entities/user.entity';
 
 @Injectable()
 export class AuthService {

@@ -9,7 +9,7 @@ import * as fs from 'fs';
 import { Permission } from './entities/permission.entity';
 import { Repository } from 'typeorm';
 import { ModulesService } from './module.service';
-import { CommonServices } from 'src/common-services/common-services.service';
+import { CommonServices } from 'nest-starter/src/common-services/common-services.service';
 import * as path from 'path';
 import { ImodulePermissions } from './interface/modulePermissions';
 import { Module } from './entities/module.entity';

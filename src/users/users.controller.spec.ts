@@ -5,8 +5,8 @@ import * as request from 'supertest';
 import { HttpStatus, INestApplication } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { AppModule } from 'src/app.module';
-import { Role } from 'src/roles/entities/role.entity';
+import { AppModule } from 'nest-starter/src/app.module';
+import { Role } from 'nest-starter/src/roles/entities/role.entity';
 
 describe('UsersController', () => {
   let controller: UsersController;

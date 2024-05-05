@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { DataSource } from 'typeorm';
-import { AppModule } from 'src/app.module';
+import { AppModule } from 'nest-starter/src/app.module';
 import { INestApplication } from '@nestjs/common';
 let app: INestApplication;
 

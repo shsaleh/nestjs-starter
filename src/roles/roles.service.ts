@@ -8,8 +8,8 @@ import { CreateRoleDto } from './dto/create-role.dto';
 import { UpdateRoleDto } from './dto/update-role.dto';
 import { In, Repository } from 'typeorm';
 import { Role } from './entities/role.entity';
-import { CommonServices } from 'src/common-services/common-services.service';
-import { PermissionsService } from 'src/permissions/permissions.service';
+import { CommonServices } from 'nest-starter/src/common-services/common-services.service';
+import { PermissionsService } from 'nest-starter/src/permissions/permissions.service';
 import { assignPermissionToRoleDto } from './dto/assignPermissionToRole';
 
 @Injectable()

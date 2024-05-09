@@ -26,7 +26,9 @@ export class PermissionsImporterService implements OnModuleInit {
     private readonly moduleRepository: Repository<Module>,
   ) {}
   async onModuleInit() {
-    await this.importClassesFromDirectory(path.resolve() + '/dist/src');
+    await this.importClassesFromDirectory(
+      path.resolve() + (process.env.NODE_ENV == 'test' ? '/src' : '/dist/src'),
+    );
   }
 
   async create(createPermissionDto: CreatePermissionDto) {
@@ -64,7 +66,9 @@ export class PermissionsImporterService implements OnModuleInit {
       } else if (
         item.isFile() &&
         item.name.includes('.modulePermissions') &&
-        item.name.endsWith('.js')
+        (process.env.NODE_ENV == 'test'
+          ? item.name.endsWith('.ts')
+          : item.name.endsWith('.js'))
       ) {
         // Import the TypeScript file if it ends with .ts
         try {

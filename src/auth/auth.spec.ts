@@ -13,7 +13,6 @@ describe('AuthController', () => {
 
     app = test.app;
     authService = test.module.get<AuthService>(AuthService);
-    await app.init();
   });
 
   it('should save and send a otp code / type sms', async () => {

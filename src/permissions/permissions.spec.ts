@@ -15,7 +15,6 @@ describe('PermissionsController', () => {
 
     app = test.app;
 
-    await app.init();
     await request(app.getHttpServer())
       .post('/auth/sendotp')
       .send({ destination: process.env.admin_mobile, type: 'SMS' });

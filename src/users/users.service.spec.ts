@@ -1,9 +1,7 @@
 import { TestingModule } from '@nestjs/testing';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
-import { INestApplication } from '@nestjs/common';
 import { getTestModule } from 'test/testingModule';
-let app: INestApplication;
 
 describe('UsersService', () => {
   let service: UsersService;
@@ -21,10 +19,7 @@ describe('UsersService', () => {
   beforeAll(async () => {
     const test = await getTestModule();
     const module: TestingModule = test.module;
-
     service = module.get<UsersService>(UsersService);
-    app = test.app;
-    await app.init();
   });
 
   it('should be defined', () => {

@@ -2,8 +2,6 @@ import {
   Controller,
   Post,
   Body,
-  Get,
-  Param,
   Headers,
   BadRequestException,
 } from '@nestjs/common';
@@ -28,9 +26,9 @@ export class AuthController {
   }
 
   @Public()
-  @Get('verfyOtp/:code/:destination/:type')
-  verfyOtp(@Param() params: verfyOtpDto) {
-    return this.authService.verfyOtp(params);
+  @Post('verfyOtp')
+  verfyOtp(@Body() otp: verfyOtpDto) {
+    return this.authService.verfyOtp(otp);
   }
 
   @Public()

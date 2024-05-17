@@ -22,9 +22,11 @@ describe('UsersController', () => {
     await request(app.getHttpServer())
       .post('/auth/sendotp')
       .send({ destination: process.env.admin_mobile, type: 'SMS' });
-    const res = await request(app.getHttpServer()).get(
-      `/auth/verfyOtp/${process.env.otp_test_code}/${process.env.admin_mobile}/sms`,
-    );
+    const res = await request(app.getHttpServer()).post(`/auth/verfyOtp`).send({
+      code: process.env.otp_test_code,
+      destination: process.env.admin_mobile,
+      type: 'sms',
+    });
 
     if (!res.error) {
       requestIns = request.agent(app.getHttpServer()).set({

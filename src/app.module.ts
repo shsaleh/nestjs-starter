@@ -14,6 +14,7 @@ import { RolesModule } from './roles/roles.module';
 import { PermissionsModule } from './permissions/permissions.module';
 import { PermissionsGuard } from './permissions/permission.guard';
 import { DataSource } from 'typeorm';
+import { StorageModule } from './storage/storage.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { DataSource } from 'typeorm';
     CommonServicesModule,
     AuthModule,
     NotificationModule,
+    StorageModule,
     JwtModule.register({
       global: true,
       secret: process.env.SECRET_KEY,
